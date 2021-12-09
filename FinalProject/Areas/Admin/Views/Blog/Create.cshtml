@@ -1,0 +1,92 @@
+﻿@model Blog
+
+
+<div class="row">
+    <div class="col-md-11">
+        <div class="card">
+            <div class="text-danger" asp-validation-summary=ModelOnly></div>
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <h1 class="card-title text-primary">Create Blog </h1>
+                    <div class="form-group row">
+                        <label asp-for="@Model.Title" class="col-sm-3 text-right control-label col-form-label">BLOG TITLE</label>
+                        <div class="col-sm-9">
+                            <input asp-for="@Model.Title" type="text" class="form-control" >
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.Title"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.Writer" class="col-sm-3 text-right control-label col-form-label"> WRITER NAME</label>
+                        <div class="col-sm-9">
+                            <input asp-for="@Model.Writer" type="text" class="form-control" >
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.Writer"></span>
+                    </div>
+
+                    <div class="form-group row col-md-12">
+                        <label  class="col-sm-3 text-right control-label col-form-label"> IMAGE</label>
+                        <div class="col-md-9" >
+                            <div class="custom-file">
+                                <input asp-for="@Model.ImageFile" type="file" class="custom-file-input" required>
+                                <label asp-for="@Model.ImageFile" class="custom-file-label" for="validatedCustomFile">Choose image...</label>
+                                <div class="invalid-feedback">Example invalid custom file feedback</div>                                
+                            </div>                           
+                        </div>
+                         <span class="form-text text-danger" asp-validation-for="@Model.ImageFile"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.CreateTime" class="col-sm-3 text-right control-label col-form-label">CREATE TIME</label>
+                        <div class="col-sm-9">
+                            <input asp-for="@Model.CreateTime" type="date" class="form-control" >
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.CreateTime"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.CommentCount" class="col-sm-3 text-right control-label col-form-label">COMMENT COUNT </label>
+                        <div class="col-sm-9">
+                            <input asp-for="@Model.CommentCount" type="number" min="1" class="form-control" >
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.CommentCount"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.BlogDetail.Text" class="col-sm-3 text-right control-label col-form-label">DESCRIPTION</label>
+                        <div class="col-sm-9">
+                            <textarea asp-for="@Model.BlogDetail.Text" id="BlogDetail_Text" type="text"  class="form-control" ></textarea>
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.BlogDetail.Text"></span>
+                    </div>
+                </div>
+
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#BlogDetail_Text' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+

@@ -1,0 +1,73 @@
+﻿
+<div class="container-fluid">
+
+    <h1 class="font-light text-dark">DASHBOARD</h1> <br /><br />
+    <div class="row">
+        <div class="col-9">
+            @if (User.IsInRole("Moderator"))
+            {
+                <!-- Column -->
+                <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <div class="card card-hover">
+                        <a asp-area="Admin" asp-controller="Course" asp-action="Index">
+                            <div class="box bg-primary text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-school"></i></h1>
+                                <h6 class="text-white">Courses</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- Column -->
+                <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <div class="card card-hover">
+                        <a asp-area="Admin" asp-controller="Course" asp-action="Index">
+                            <div class="box bg-primary text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-school"></i></h1>
+                                <h6 class="text-white">Courses</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-5 col-xlg-3">
+                    <div class="card card-hover">
+                        <a asp-area="Admin" asp-controller="Event" asp-action="Index">
+                            <div class="box bg-danger text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-history"></i></h1>
+                                <h6 class="text-white">Events</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-6 col-xlg-3">
+                    <div class="card card-hover">
+                        <a asp-area="Admin" asp-controller="Teacher" asp-action="Index">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
+                                <h6 class="text-white">Teachers</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-7 col-xlg-3">
+                    <div class="card card-hover">
+                        <a asp-area="Admin" asp-controller="Blog" asp-action="Index">
+                            <div class="box bg-secondary text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-blogger"></i></h1>
+                                <h6 class="text-white">Blogs</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+

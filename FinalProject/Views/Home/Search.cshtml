@@ -1,0 +1,68 @@
+﻿@model HomeVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/search/css/style.css">
+    <title>EduHome Search </title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- navbar start -->
+        <nav>
+            <div class="logo">
+                <a asp-action="Index" asp-controller="Home"><img src="~/search/image/logo2.png" alt="logo"></a>
+            </div>
+            <div class="nav-items">
+                <a asp-action="Index" asp-controller="Home">Home</a>
+                <a asp-action="Index" asp-controller="About">About</a>
+                <a asp-action="Index" asp-controller="Course">Courses</a>
+                <a asp-action="Index" asp-controller="Event">Events</a>
+                <a asp-action="Index" asp-controller="Teacher">Teachers</a>
+                <a asp-action="Index" asp-controller="Blog">Blogs</a>
+                <a asp-action="Index" asp-controller="Contact">Contact</a>
+                <a asp-action="Login" asp-controller="Account">Login</a>
+                <a asp-action="Register" asp-controller="Account">Sign up</a>
+            </div>
+        </nav>
+        <!-- navbar end-->
+        <!-- content start-->
+        <div class="content">
+            <div class="search">
+                <h1>SUCCEED WITH US</h1>
+                <div class="search-box" >
+                    <form action="#">
+                        <input id="all-search" type="text" placeholder="Enter your search key word">
+                        <!-- <a href="#"><i class="fas fa-search"></i></a> -->
+                    </form>
+                </div>
+            </div>
+            <img class="search-img" src="~/search/image/search icon3.svg" alt="search">
+        </div>
+        <!-- content end-->
+        <!-- footer start -->
+        <!-- footer end -->
+    </div>
+
+
+    @section Scripts{
+    <partial name="_SearchAllPartialView" />
+    }
+</body>
+
+</html>

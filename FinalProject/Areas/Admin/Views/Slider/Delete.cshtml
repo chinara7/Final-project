@@ -1,0 +1,24 @@
+﻿@model Slider
+
+
+
+<div class="card-body">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-course mb-70">
+            <div class="course-img">
+                <a asp-action="Info" asp-controller="Slider" asp-route-id=@Model.Id>
+                    <img style="width: 360px; height: 260px;" src="~/img/slider/@Model.SliderImage" alt="course">                   
+                </a>
+            </div>
+            <div class="course-content">
+                <h3><a asp-action="Info" asp-controller="Slider" > @Html.Raw(@Model.Title)</a></h3>
+                <a class="btn btn-info" asp-action="Info" asp-controller="Slider" >read more</a>
+            </div>
+        </div>
+    </div>
+    <form method="post">
+        <h3 class="text-danger">Do you want to inactivate a slider ?</h3>
+        <button type="submit" class="btn btn-danger ">Yes</button>
+        <a asp-action="Index" class="btn btn-info">Go Back</a>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+﻿@model Course
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<div class="courses-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="courses-details">
+                    <div class="courses-details-img">
+                        <img style="width: 360px; height: 260px;" src="~/img/course/@Model.Image" alt="courses-details">
+                    </div>
+                    <div class="course-details-content">
+                        <h2>@Model.Title</h2>
+                        <p> @Html.Raw(@Model.CourseDetail.Header) </p>
+                        <div class="course-details-left">
+                            <div class="single-course-left">
+                                <h3>ABOUT COURSE</h3>
+                                <p>@Model.CourseDetail.About</p>
+                            </div>
+                            <div class="single-course-left">
+                                <h3>HOW TO APPLY</h3>
+                                <p>@Html.Raw(@Model.CourseDetail.Apply)</p>
+                            </div>
+                            <div class="single-course-left">
+                                <h3>CERTIFICATION</h3>
+                                <p class="margin">@Model.Title @Model.CourseDetail.Certification</p>
+                            </div>
+                        </div>
+                        <div class="course-details-right">
+                            <h3>COURSE FEATURES</h3>
+                            <ul>
+                                <li>starts <span>@Model.CourseDetail.Starts.ToString("d MMMM, yyyy ", CultureInfo.InvariantCulture)</span></li>
+                                <li>duration <span>@Model.CourseDetail.Duration Month</span></li>
+                                <li>class duration <span>@Model.CourseDetail.ClassDuration hours</span></li>
+                                <li>skill level <span> @Model.CourseDetail.SkillLevel </span></li>
+                                <li>language <span>@Model.CourseDetail.Language</span></li>
+                                <li>students <span>@Model.CourseDetail.StudentCount</span></li>
+                                <li>assesments <span> @Model.CourseDetail.Assessments </span></li>
+                            </ul>
+                            <h3 class="red mb-100">COURSE FEE $@Model.CourseDetail.CourseFee</h3>
+                           <br /><br /><br /><br /><br />                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

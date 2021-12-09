@@ -1,0 +1,48 @@
+﻿@using System.Globalization
+@model Event
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+
+<div class="event-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="event-details">
+                    <div class="event-details-img">
+                        <img style="width: 360px; height: 260px;" src="~/img/event/event-details.jpg" alt="event-details">
+                        <div class="event-date">
+                            <h4 class="text-danger"> <span>@Model.Date.ToString("dd MMM yyyy", CultureInfo.InvariantCulture)</span></h4>
+                        </div>
+                    </div>
+                    <div class="event-details-content">
+                        <h2>@Model.Title</h2>
+                        <ul>
+                            <li><span>time: </span> @Model.StartTime.ToString("hh:mm tt") - @Model.EndTime.ToString("hh:mm tt")</li>
+                            <li><span>venue: </span> @Model.Venue</li>
+                        </ul>
+                        <p>@Html.Raw(@Model.EventDetail.Text)</p>
+                        <div class="speakers-area fix">
+                            <h2>speakers</h2>
+                            @foreach (EventEventSpeaker eventEventSpeaker in Model.eventEventSpeakers)
+                            {
+                                <div class="single-speaker">
+                                    <div class="speaker-img">
+                                        <img src="~/img/event/@eventEventSpeaker.EventSpeaker.Photo" style="width: 110px; height: 90px;" alt="speaker">
+                                    </div>
+                                    <div class="speaker-name">
+                                        <h5>@eventEventSpeaker.EventSpeaker.Name</h5>
+                                        <p>@eventEventSpeaker.EventSpeaker.Profession </p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br />

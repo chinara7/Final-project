@@ -1,0 +1,35 @@
+﻿@model List<Event>
+@using System.Globalization
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title text-success">Active events</h1>
+        <div class="table-responsive">
+            <table id="zero_config" class="table  table-striped table-bordered">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th><h3>Image</h3> </th>
+                        <th><h3>Event name</h3> </th>
+                        <th><h3>Date </h3> </th>
+                        <th><h3>Settings</h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Event event_ in Model)
+                    {
+                        <tr>
+                            <td><img style="width: 100px; height: 110px;" src="~/img/event/@event_.Image"></td>
+                            <td>@event_.Title</td>
+                            <td> @event_.StartTime.ToString("dd MMM yyyy", CultureInfo.InvariantCulture), @event_.StartTime.ToString(" hh:mm tt", CultureInfo.InvariantCulture) - @event_.EndTime.ToString("hh:mm tt", CultureInfo.InvariantCulture)</td>
+                            <td>
+                                <a asp-action="Info" asp-route-id=@event_.ID class="btn btn-info text-light">Info</a>
+                                <a asp-action="Update" asp-route-id=@event_.ID class="btn btn-warning text-light">Update</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@event_.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

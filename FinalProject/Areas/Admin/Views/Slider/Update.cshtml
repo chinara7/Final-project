@@ -1,0 +1,78 @@
+﻿@model Slider
+
+
+<h1>Update Slider</h1>
+
+
+<div class="row">
+    <div class="col-md-9">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+
+            <div class="form-group row">
+                <label asp-for="@Model.SliderImageFile" class="col-sm-3 text-right control-label col-form-label">SLIDER IMAGE</label>
+                <div class="col-md-9">
+                    <div class="custom-file">
+                        <input asp-for="@Model.SliderImageFile" type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose slider image...</label>
+                        <span class="form-text text-danger" asp-validation-for="@Model.SliderImageFile"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="@Model.ImageFile" class="col-sm-3 text-right control-label col-form-label"> IMAGE</label>
+                <div class="col-md-9">
+                    <div class="custom-file">
+                        <input asp-for="@Model.ImageFile" type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
+                        <span class="form-text text-danger" asp-validation-for="@Model.ImageFile"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="@Model.Description" class="col-sm-3 text-right control-label col-form-label">DESCRIPTION</label>
+                <div class="col-sm-9">
+                    <textarea asp-for="@Model.Description" type="text" class="form-control"> </textarea>
+                </div>
+                <span asp-validation-for="@Model.Description" class="form-text text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="@Model.Title" class="col-sm-3 text-right control-label col-form-label">TITLE</label>
+                <div class="col-sm-9">
+                    <textarea asp-for="@Model.Title" id="Slider_Title" type="text" class="form-control"></textarea>
+                </div>
+                <span class="form-text text-danger" asp-validation-for="@Model.Title"></span>
+
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#Slider_Title' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+

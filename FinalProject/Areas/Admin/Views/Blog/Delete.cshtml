@@ -1,0 +1,31 @@
+﻿@using System.Globalization
+@model Blog
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="card-body">
+    <div class="col-md-4 col-sm-6 col-xs-12" style="width: 400px; height: 450px;">
+        <div class="single-blog mb-60">
+            <div class="blog-img">
+                <a asp-action="Info" asp-controller="Blog" asp-route-id=@Model.Id><img style="width: 360px; height: 260px;" src="~/img/blog/@Model.Image" alt="blog"></a>>
+            </div>
+            <div class="blog-content">
+                <div class="blog-top">
+                    <p>@Model.Writer  /  @Model.CreateTime.ToString("MMMM d, yyyy", CultureInfo.InvariantCulture)  /  <i class="fa fa-comments-o"></i> @Model.CommentCount</p>
+                </div>
+                <div class="blog-bottom" style="width: 370px; height: 138px;">
+                    <h2><a asp-action="Info" asp-controller="Blog" asp-route-id=@Model.Id>@Model.Title </a></h2>
+                    <a class="btn btn-info" asp-action="Info" asp-controller="Blog" asp-route-id=@Model.Id>read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="post">
+        <h3 class="text-danger">Do you want to deactivate a blog called - @Model.Title?</h3>
+        <button type="submit" class="btn btn-danger ">Yes</button>
+        <a asp-action="Index" class="btn btn-info">Go Back</a>
+    </form>
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model List<Event>
+@using System.Globalization
+
+
+
+    @foreach (Event event_ in Model)
+{
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="single-event mb-60">
+            <div class="event-img">
+                <a asp-action="EventDetail" asp-controller="Event" asp-route-id=@event_.ID>
+                    <img src="~/img/event/@event_.Image" alt="event">
+                    <div class="course-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+                <div class="event-date">
+                    <h3> @event_.Date.ToString("d ")  <span>@event_.Date.ToString("MMM ", CultureInfo.InvariantCulture)</span></h3>
+                </div>
+            </div>
+            <div class="event-content text-left">
+                <h4><a asp-action="EventDetail" asp-controller="Event" asp-route-id=@event_.ID>@event_.Title</a></h4>
+                <ul>
+                    <li><span>time:</span> @event_.StartTime.ToString("hh:mm tt") - @event_.EndTime.ToString("hh:mm tt")</li>
+                    <li><span>venue</span> @event_.Venue</li>
+                </ul>
+                <div class="event-content-right">
+                    <a class="default-btn" asp-action="EventDetail" asp-controller="Event" asp-route-id=@event_.ID>join now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

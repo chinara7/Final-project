@@ -1,0 +1,24 @@
+﻿@model Slider
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<div class="courses-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="courses-details">
+                    <div class="courses-details-img">
+                        <img style="width: 360px; height: 260px;" src="~/img/slider/@Model.SliderImage" >
+                    </div>
+                    <div class="course-details-content">
+                        <h2>@Html.Raw(@Model.Title)</h2>
+                        <p> @Model.Description </p>                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

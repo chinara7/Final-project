@@ -1,0 +1,253 @@
+﻿@model HomeVM
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Background Area Start -->
+<section id="slider-container" class="slider-area three"> 
+            <div class="slider-owl owl-theme owl-carousel"> 
+                @foreach (Slider slider in Model.Sliders)
+               {
+                   <!-- Start Slingle Slide -->
+                <div class="single-slide item" style="background-image: url(img/slider/@slider.SliderImage)">
+                    <!-- Start Slider Content -->
+                    <div class="slider-content-area">  
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7"> 
+                                    <div class="slide-content-wrapper">
+                                        <div class="slide-content">
+                                            <h3>@Html.Raw(@slider.Title) </h3>
+                                            <p> @slider.Description </p>
+                                            <a class="default-btn" asp-controller="About" asp-action="Index" >Learn more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="slider-img">
+                                        <img src="img/slider/@slider.Image" alt="slider">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Slider Content -->
+                </div>
+                <!-- End Slingle Slide --> 
+               }
+                @*<!-- Start Slingle Slide -->
+                <div class="single-slide item" style="background-image: url(img/slider/slider2.jpg)">
+                    <!-- Start Slider Content -->
+                    <div class="slider-content-area">   
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7"> 
+                                    <div class="slide-content-wrapper">
+                                        <div class="slide-content">
+                                            <h3>EDUCATION MAKES </h3>
+                                            <h2>PROPER HUMANITY </h2>
+                                            <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
+                                            <a class="default-btn" href="about.html">Learn more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="slider-img">
+                                        <img src="img/slider/home.png" alt="slider">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Slider Content -->
+                </div>
+                <!-- End Slingle Slide -->
+                <!-- Start Slingle Slide -->
+                <div class="single-slide item" style="background-image: url(img/slider/slider1.jpg)">
+                    <!-- Start Slider Content -->
+                    <div class="slider-content-area">  
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7"> 
+                                    <div class="slide-content-wrapper">
+                                        <div class="slide-content">
+                                            <h3>EDUCATION MAKES </h3>
+                                            <h2>PROPER HUMANITY </h2>
+                                            <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
+                                            <a class="default-btn" href="about.html">Learn more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="slider-img">
+                                        <img src="img/slider/home.png" alt="slider">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Slider Content -->
+                </div>
+                <!-- End Slingle Slide -->*@								
+            </div>
+        </section>
+<!-- Background Area End -->
+
+<!-- Courses Area Start -->
+<div class="courses-area pt-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/img/icon/section.png" alt="section-title">
+                    <h2>COURSES WE OFFER</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Course course in Model.Courses)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a asp-action="CourseDetail" asp-controller="Course" asp-route-id=@course.Id>
+                                <img src="~/img/course/@course.Image" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a asp-action="CourseDetail" asp-controller="Course" asp-route-id=@course.Id>@course.Title</a></h3>
+                            <p>@course.SubTitle</p>
+                            <a class="default-btn" asp-action="CourseDetail" asp-controller="Course" asp-route-id=@course.Id>read more</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Courses Area End -->
+
+<!-- Notice Board Start -->
+@await Component.InvokeAsync("NoticeBoard")
+<!-- Notice Board End -->
+
+<!-- About Start -->
+@await Component.InvokeAsync("AboutCourse")
+<!-- About End -->
+
+<!-- Event Area Start -->
+<div class="event-area three text-center pt-100 pb-115">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/img/icon/section.png" alt="section-title">
+                    <h2>UPCOMMING EVENTS</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Event item in Model.Events)
+            {
+                <div class="col-md-6 col-sm-6 col-xs-12" style="width: 400px; height: 481px;">
+                    <div class="single-event mb-60">
+                        <div class="event-img">
+                            <a asp-action="EventDetail" asp-controller="Event" asp-route-id=@item.ID>
+                                <img src="~/img/event/@item.Image" alt="event">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                            <div class="event-date">
+                                <h3>@item.Date.ToString("d ")  <span>@item.Date.ToString("MMM ", CultureInfo.InvariantCulture)</span></h3>
+                            </div>
+                        </div>
+                        <div class="event-content text-left">
+                            <h4><a asp-action="EventDetail" asp-controller="Event" asp-route-id=@item.ID>@item.Title</a></h4>
+                            <ul>
+                                <li><span>time:</span> @item.StartTime.ToString("hh:mm tt") - @item.EndTime.ToString("hh:mm tt")</li>
+                                <li><span>venue:</span> @item.Venue</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" asp-action="EventDetail" asp-controller="Event" asp-route-id=@item.ID>join now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Event Area End -->
+
+<!-- Testimonial Area Start -->
+<div class="testimonial-area three pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                @foreach (Testimonial testimonial in Model.Testimonials)
+                {
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <div class="single-testimonial">
+                            <div class="testimonial-info">
+                                <div class="testimonial-img" style="width: 77px; height: 74px;">
+                                    <img src="~/img/testimonial/@testimonial.Image" alt="testimonial">
+                                </div>
+                                <div class="testimonial-content">
+                                    <p>@testimonial.Response</p>
+                                    <h4>@testimonial.StudentName</h4>
+                                    <h5>Student, @testimonial.CourseName</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+
+<!-- Blog Area Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="~/img/icon/section.png" alt="section-title">
+                    <h2>LATEST FROM BLOG</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Blog blog in Model.Blogs)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12" style="width: 400px; height: 450px;">
+                    <div class="single-blog mb-60" >
+                        <div class="blog-img">
+                            <a asp-action="BlogDetail" asp-controller="Blog" asp-route-id=@blog.Id><img  style="width: 365px; height: 246px;" src="~/img/blog/@blog.Image" alt="blog"></a>
+                            <div class="blog-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@blog.Writer  /  @blog.CreateTime.ToString("MMMM d, yyyy")  /  <i class="fa fa-comments-o"></i> @blog.CommentCount</p>
+                            </div>
+                            <div class="blog-bottom" style="width: 370px; height: 138px;">
+                                <h2><a asp-action="BlogDetail" asp-controller="Blog" asp-route-id=@blog.Id>@blog.Title </a></h2>
+                                <a asp-action="BlogDetail" asp-controller="Blog" asp-route-id=@blog.Id>read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Blog Area End -->

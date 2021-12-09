@@ -1,0 +1,71 @@
+﻿@model Testimonial
+
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="text-danger" asp-validation-summary=ModelOnly></div>
+        <div class="card">
+
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <h1 class="card-title text-primary">Create testimonial </h1>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.StudentName" class="col-sm-3 text-right control-label col-form-label">STUDENT NAME</label>
+                        <div class="col-sm-9">
+                            <input asp-for="@Model.StudentName" type="text" class="form-control" placeholder="Student name">
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.StudentName"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.CourseName" class="col-sm-3 text-right control-label col-form-label">COURSE NAME</label>
+                        <div class="col-sm-9">
+                            <input asp-for="@Model.CourseName" type="text" class="form-control" placeholder="Course name">
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.CourseName"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="@Model.ImageFile" class="col-sm-3 text-right control-label col-form-label"> IMAGE</label>
+                        <div class="col-md-9">
+                            <div class="custom-file">
+                                <input asp-for="@Model.ImageFile" type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Choose image...</label> 
+                            </div>                            
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.ImageFile"></span>
+                    </div>
+
+                     <div class="form-group row">
+                        <label asp-for="@Model.Response" class="col-sm-3 text-right control-label col-form-label">RESPONSE</label>
+                        <div class="col-sm-9">
+                            <textarea asp-for="@Model.Response" class="form-control"></textarea>
+                        </div>
+                        <span class="form-text text-danger" asp-validation-for="@Model.Response"></span>
+                    </div>
+
+                </div>
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+

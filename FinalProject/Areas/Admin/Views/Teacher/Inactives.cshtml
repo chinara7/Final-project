@@ -1,0 +1,43 @@
+﻿@model List<Teacher>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title text-danger">Inactive teachers</h1>
+        <div class="table-responsive">
+            <table id="zero_config" class="table  table-striped table-bordered">
+                <thead class="bg-danger text-white">
+                    <tr>
+                        <th><h3>Photo</h3> </th>
+                        <th><h3>Fullname</h3> </th>
+                        <th><h3>Profession</h3> </th>
+                        <th><h3>Settings</h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Teacher teacher in Model)
+                    {
+                        <tr>
+                            <td><img style="width: 100px; height: 110px;" src="~/img/teacher/@teacher.Image"></td>
+                            <td>@teacher.FullName.ToUpper()</td>
+                            <td>
+                                @foreach (TeacherTeacherProfession t in teacher.teacherTeacherProfessions)
+                                {
+                                    @t.TeacherProfession.Name
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="Info" asp-route-id=@teacher.Id class="btn btn-info text-light">Info</a>
+                                <a asp-action="Update" asp-route-id=@teacher.Id class="btn btn-warning text-light">Update</a>
+                                <a class="btn btn-success" asp-action="Delete" asp-route-id="@teacher.Id">Activate</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

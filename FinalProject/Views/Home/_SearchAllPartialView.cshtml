@@ -1,0 +1,65 @@
+﻿@model HomeVM
+
+
+<div class="row bg-light pl-10 pt-10 pb-10">
+    <h5 class="text-left text-danger mb-5">Blog section</h5>
+    @foreach (Blog blog in Model.Blogs)
+    {
+        <div class="row card border-dark">
+            <div class="col-md-2">
+                <img src="~/img/blog/@blog.Image" style="width: 50px;" class="card-img">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <p class="text-left">@blog.Title.ToLower()</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <h5 class="text-left text-danger mb-5 ">Course section</h5>
+    @foreach (Course course in Model.Courses)
+    {
+        <div class="row card border-dark">
+            <div class="col-md-2">
+                <img src="~/img/course/@course.Image" style="width: 50px;" class="card-img">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <p class="text-left">@course.Title.ToLower()</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <h5 class="text-left text-danger mb-5">Event section</h5>
+    @foreach (Event event_ in Model.Events)
+    {
+        <div class="row card border-dark">
+            <div class="col-md-2">
+                <img src="~/img/event/@event_.Image" style="width: 50px;" class="card-img">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <p class="text-left">@event_.Title.ToLower()</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <h5 class="text-left text-danger mb-5">Teacher section</h5>
+    @foreach (Teacher teacher in Model.Teachers)
+    {
+        <div class="row card border-dark">
+            <div class="col-md-2">
+                <img src="~/img/teacher/@teacher.Image" style="width: 50px;" class="card-img">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <p class="text-left">@teacher.FullName.ToLower()</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

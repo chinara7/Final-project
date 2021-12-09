@@ -1,0 +1,27 @@
+﻿@model Blog
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<div class="blog-details-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-details">
+                    <div class="blog-details-img">
+                        <img style="width: 360px; height: 260px;" src="~/img/blog/@Model.Image" alt="blog-details">
+                    </div>
+                    <div class="blog-details-content">
+                        <h2>@Model.Title </h2>
+                        <h6>@Model.Writer  / @Model.CreateTime.ToString(" MMMM d, yyyy ", CultureInfo.InvariantCulture) /  <i class=" fas fa-comments"></i> @Model.CommentCount</h6>
+                        <p> @Html.Raw(@Model.BlogDetail.Text) </p>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br />
+

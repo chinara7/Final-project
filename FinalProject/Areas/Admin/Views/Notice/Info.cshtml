@@ -1,0 +1,23 @@
+﻿@using System.Globalization
+@model Notice
+
+<h2>Notice detail</h2>
+<br /><br /><br />
+<div class="courses-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="courses-details">
+                    <div c>
+                        <h4 >@Model.Date.ToString("d, MMMM yyyy", CultureInfo.InvariantCulture)</h4>
+                    </div>
+                    <div class="course-details-content">
+                        <p>@Html.Raw(@Model.Description)</p>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

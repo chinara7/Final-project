@@ -1,0 +1,24 @@
+﻿@model Testimonial
+
+<div class="card-body">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-course mb-70">
+            <div class="course-img">
+                <a asp-action="Info" asp-controller="Testimonial" asp-route-id=@Model.Id>
+                    <img style="width: 100px; height: 100px;" src="~/img/testimonial/@Model.Image" >                   
+                </a>
+            </div>
+            <div class="course-content">
+                <h3><a asp-action="Info" asp-controller="Course" asp-route-id=@Model.Id>@Model.StudentName</a></h3>
+                <p>@Model.CourseName</p>
+                <a class="btn btn-info" asp-action="Info" asp-controller="Course" asp-route-id=@Model.Id>read more</a>
+            </div>
+        </div>
+    </div>
+    <form method="post">
+        <h3 >Do you want to activate a testimonial?</h3>
+        <button type="submit" class="btn btn-success ">Yes</button>
+        <a asp-action="Index" class="btn btn-info">Go Back</a>
+    </form>
+</div>
+

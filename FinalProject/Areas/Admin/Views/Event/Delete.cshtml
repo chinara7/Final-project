@@ -1,0 +1,38 @@
+﻿@using System.Globalization
+@model Event
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card-body">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="single-event mb-60">
+            <div class="event-img">
+                <a asp-action="Info" asp-controller="Event" asp-route-id=@Model.ID>
+                    <img style="width: 360px; height: 260px;" src="~/img/event/@Model.Image" alt="event">
+                </a>
+                <div class="event-date">
+                    <h3> @Model.Date.ToString("d ")  <span>@Model.Date.ToString("MMM ", CultureInfo.InvariantCulture)</span></h3>
+                </div>
+            </div>
+            <div class="event-content text-left">
+                <h4><a asp-action="Info" asp-controller="Event" asp-route-id=@Model.ID>@Model.Title</a></h4>
+                <ul>
+                    <li><span>time:</span> @Model.StartTime.ToString("hh:mm tt") - @Model.EndTime.ToString("hh:mm tt")</li>
+                    <li><span>venue</span> @Model.Venue</li>
+                </ul>
+                <div class="event-content-right">
+                    <a class="btn btn-info" asp-action="Info" asp-controller="Event" asp-route-id=@Model.ID>join now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <form method="post">
+        <h3 class="text-danger">Do you want to deactivate a event called - @Model.Title?</h3>
+        <button type="submit" class="btn btn-danger ">Yes</button>
+        <a asp-action="Index" class="btn btn-info">Go Back</a>
+    </form>
+</div>
+
+

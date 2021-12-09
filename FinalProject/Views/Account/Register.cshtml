@@ -1,0 +1,76 @@
+﻿@model RegisterVM
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>sign up</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Register start -->
+<div class="register-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>sign up</h2>
+                            <!-- <span>Please login using account detail bellow.</span> -->
+                        </div>
+                        <div class="login-form">
+                            <div class="text-danger" asp-validation-summary=ModelOnly></div>
+                            <form asp-action="register" method="post">
+                                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+                                <input type="text" asp-for="@Model.Name" placeholder="Name">
+
+                                <span class="text-danger" asp-validation-for="@Model.Surname"></span>
+                                <input type="text" asp-for="@Model.Surname" placeholder="Surname">
+
+                                <span class="text-danger" asp-validation-for="@Model.Username"></span>
+                                <input type="text" asp-for="@Model.Username" placeholder="Username">
+
+                                <span class="text-danger" asp-validation-for="@Model.Email"></span>
+                                <input type="email" asp-for="@Model.Email" placeholder="Email">
+
+                                <span class="text-danger" asp-validation-for="@Model.Password"></span>
+                                <input type="password" asp-for="@Model.Password" placeholder="Password">
+
+                                <span class="text-danger" asp-validation-for="@Model.RepeatPassword"></span>
+                                <input type="password" asp-for="@Model.RepeatPassword" placeholder="Repeat Password">
+
+                                <div class="button-box">
+                                    <div class="login-toggle-btn">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">Remember me</label>
+                                        <a href="#">Forgot Password?</a>
+                                    </div>
+                                    <button type="submit" class="default-btn">
+                                        sign
+                                        up
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register end -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+

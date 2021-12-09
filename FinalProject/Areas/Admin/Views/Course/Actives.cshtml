@@ -1,0 +1,36 @@
+﻿@model List<Course>
+
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title text-success">Active courses</h1>
+        <div class="table-responsive">
+            <table id="zero_config" class="table  table-striped table-bordered">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <th><h3>Cover</h3> </th>
+                        <th><h3>Course Name</h3> </th>
+                        <th><h3>Settings</h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Course course in Model)
+                    {
+                        <tr>
+                            <td><img style="width: 120px; height: 80px;" src="~/img/course/@course.Image" alt="course"></td>
+                            <td>@course.Title</td>
+                            <td>
+                                <a asp-action="Info" asp-route-id=@course.Id class="btn btn-info text-light">Info</a>
+                                <a asp-action="Update" asp-route-id=@course.Id class="btn btn-warning text-light">Update</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Delete" asp-route-id=@course.Id class="btn btn-danger text-light">Delete</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

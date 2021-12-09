@@ -1,0 +1,60 @@
+﻿@model List<Course>
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>courses</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Course Start -->
+<div class="course-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="course-title">
+                    <h3>search courses</h3>
+                </div>
+                <div class="course-form" id="search-box-course">
+                    <form id="search">
+                        <input type="text" id="course-search" placeholder="Search..." name="search" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2 style="font-size:xx-large;" class="mb-50">All Courses</h2>
+            @foreach (Course course in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12" >
+                    <div class="single-course mb-70" style="width: 400px; height: 450px;">
+                        <div class="course-img">
+                            <a asp-action="CourseDetail" asp-controller="Course" asp-route-id=@course.Id>
+                                <img style="width: 370px; height: 250px;" src="~/img/course/@course.Image" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content" style="width: 370px; height: 220px;">
+                            <h3><a asp-action="CourseDetail" asp-controller="Course" asp-route-id=@course.Id>@course.Title</a></h3>
+                            <p>@course.SubTitle</p>
+                            <a class="default-btn" asp-action="CourseDetail" asp-controller="Course" asp-route-id=@course.Id>read more</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Course End -->

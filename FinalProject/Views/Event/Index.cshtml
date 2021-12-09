@@ -1,0 +1,109 @@
+﻿@using System.Globalization
+@model List<Event>
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Events</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-area event-area three text-center pt-150 pb-90">
+    <div class="container" >
+        <div class="row" >
+            <div class="col-md-8" >
+                <div class="row" id="search-box-event">
+                    <h2 style="font-size:xx-large;" class="mb-50" >All Events</h2>
+                    @foreach (Event event_ in Model)
+                    {
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                            <div class="single-event mb-60">
+                                <div class="event-img">
+                                    <a asp-action="EventDetail" asp-controller="Event" asp-route-id=@event_.ID>
+                                        <img style="width: 370px; height: 250px;" src="~/img/event/@event_.Image" alt="event">
+                                        <div class="course-hover">
+                                            <i class="fa fa-link"></i>
+                                        </div>
+                                    </a>
+                                    <div class="event-date">
+                                        <h3> @event_.Date.ToString("d ")  <span>@event_.Date.ToString("MMM ", CultureInfo.InvariantCulture)</span></h3>
+                                    </div>
+                                </div>
+                                <div class="event-content text-left " style="width: 370px; height: 200px;">
+                                    <h4><a asp-action="EventDetail" asp-controller="Event" asp-route-id=@event_.ID>@event_.Title</a></h4>
+                                    <ul>
+                                        <li><span>time:</span> @event_.StartTime.ToString("hh:mm tt") - @event_.EndTime.ToString("hh:mm tt")</li>
+                                        <li><span>venue</span> @event_.Venue</li>
+                                    </ul>
+                                    <div class="event-content-right">
+                                        <a class="default-btn" asp-action="EventDetail" asp-controller="Event" asp-route-id=@event_.ID>join now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-sidebar right text-left">
+                    <div class="single-blog-widget mb-50">
+                        <h3>search</h3>
+                        <div class="blog-search"  >
+                            <form id="search" action="#">
+                                <input type="text" id="event-search" placeholder="Search..." name="search" />
+                                <button type="submit">
+                                    <span><i class="fa fa-search"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>categories</h3>
+                        <ul>
+                            <li><a href="#">CSS Engineering (10)</a></li>
+                            <li><a href="#">Political Science (12)</a></li>
+                            <li><a href="#">Micro Biology (08)</a></li>
+                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
+                            <li><a href="#">Web Design (20)</a></li>
+                            <li><a href="#">PHP (23)</a></li>
+                        </ul>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <div class="single-blog-banner">
+                            <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
+                            <h2>best<br> eductaion<br> theme</h2>
+                        </div>
+                    </div>
+
+                    <!-- BlogPart ViewComponnet start -->
+                    @await Component.InvokeAsync("BlogPart")
+                    <!-- BlogPart ViewComponnet end -->
+
+                    <div class="single-blog-widget">
+                        <h3>tags</h3>
+                        <div class="single-tag">
+                            <a href="blog-details.html" class="mr-10 mb-10">course</a>
+                            <a href="blog-details.html" class="mr-10 mb-10">education</a>
+                            <a href="blog-details.html" class="mb-10">teachers</a>
+                            <a href="blog-details.html" class="mr-10">learning</a>
+                            <a href="blog-details.html" class="mr-10">university</a>
+                            <a href="blog-details.html">events</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

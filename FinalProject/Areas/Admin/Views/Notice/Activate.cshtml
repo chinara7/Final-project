@@ -1,0 +1,27 @@
+﻿@using System.Globalization
+@model Notice
+
+<h2>Activate notice</h2>
+<br /><br /><br />
+<div class="courses-details-area blog-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="courses-details">
+                    <div c>
+                        <h4 >@Model.Date.ToString("d, MMMM yyyy", CultureInfo.InvariantCulture)</h4>
+                    </div>
+                    <div class="course-details-content">
+                        <p>@Html.Raw(@Model.Description)</p>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="post">
+        <h3 class="text-success">Do you want to activate a notice ?</h3>
+        <button type="submit" class="btn btn-success ">Yes</button>
+        <a asp-action="Index" class="btn btn-info">Go Back</a>
+    </form>
+</div>
+

@@ -1,0 +1,25 @@
+﻿@model List<Blog>
+@using System.Globalization
+
+
+<div class="single-blog-widget mb-50">
+    <h3>latest post</h3>
+
+    @foreach (Blog blog in Model)
+    {
+        <div class="single-post mb-30">
+            <div class="single-post-img">
+                <a asp-action="BlogDetail" asp-controller="Blog" asp-route-id=@blog.Id>
+                    <img src="~/img/blog/@blog.Image" style="width: 95px; height: 84px;" alt="post">
+                    <div class="blog-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="single-post-content">
+                <h4><a asp-action="BlogDetail" asp-controller="Blog" asp-route-id=@blog.Id>@blog.Title</a></h4>
+                <p>@blog.Writer  /  @blog.CreateTime.ToString("MMMM d, yyyy", CultureInfo.InvariantCulture)
+            </div>
+        </div>
+    }
+</div>

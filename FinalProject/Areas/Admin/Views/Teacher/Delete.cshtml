@@ -1,0 +1,33 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="card-body">
+    <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="single-teacher mb-45" style="width: 270px; height: 300px;">
+            <div class="single-teacher-img" style="width: 270px; height: 270px;">
+                <a asp-action="Info" asp-controller="Teacher" asp-route-id=@Model.Id><img src="~/img/teacher/@Model.Image" alt="teacher"></a>
+            </div>
+            <div class="single-teacher-content text-center">
+                <h2><a asp-action="Info" asp-controller="Teacher" asp-route-id=@Model.Id></a>@Model.FullName</h2>
+                @foreach (TeacherTeacherProfession teacherTeacherProfession in Model.teacherTeacherProfessions)
+                {
+                    <span>@teacherTeacherProfession.TeacherProfession.Name  </span>
+                }
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <div class="row">
+        <div>
+            <form method="post">
+                <h3 class="text-danger">Do you want to deactivate a teacher called - @Model.FullName?</h3>
+                <button type="submit" class="btn btn-danger ">Yes</button>
+                <a asp-action="Index" class="btn btn-info">Go Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
